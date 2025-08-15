@@ -17,10 +17,11 @@ export default function Select({
 			<select
 				type="text"
 				name={name}
+				defaultValue=""
 				className={styles["text_input__input"]}
 				{...props}
 			>
-				<option value="" disabled selected>Select your option</option>
+				<option value="" disabled>Select your option</option>
 				{options.map((option) => (
 					<option key={option} value={option}>
 						{option}
