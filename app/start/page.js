@@ -1,3 +1,4 @@
+import Button from "../_components/button/button";
 import styles from "./page.module.css";
 
 export default function StartPage() {
@@ -32,11 +33,11 @@ export default function StartPage() {
 					shared with third parties. We respect your privacy and handle your
 					data with care.
 				</small>
-
-				<form>
-					<button>Submit</button>
-				</form>
 			</div>
+
+			<form className={styles["start_page__form"]}>
+				<Button>Submit</Button>
+			</form>
 		</main>
 	);
 }

@@ -1,3 +1,7 @@
+.start_page {
+	position: relative;
+}
+
 .start_page__header {
 	display: flex;
 	flex-direction: column;
@@ -23,4 +27,15 @@
 
 .start_page__content p{
 	margin-bottom: 1rem;
+}
+
+.start_page__form {
+	margin-top: 2rem;
+}
+
+
+.start_page__form button {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
 }
