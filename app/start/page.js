@@ -1,8 +1,5 @@
-import Button from "../_components/button/button";
-import TextInput from "../_components/text-input/text-input";
-import Select from "../_components/select/select";
-
 import styles from "./page.module.css";
+import UserInfoForm from "./user-info-form";
 
 export default function StartPage() {
 	return (
@@ -38,47 +35,7 @@ export default function StartPage() {
 				</small>
 			</div>
 
-			<form className={styles["start_page__form"]}>
-				<TextInput
-					name="name"
-					label="Preferred Nickname"
-					placeholder="Eg; sunshine"
-					type="string"
-				/>
-				<TextInput
-					name="age"
-					label="Your age"
-					placeholder="Eg; 30"
-					type="number"
-				/>
-				<TextInput
-					name="weight"
-					label="Your weight (in Kilogram)"
-					placeholder="Eg; 72"
-					type="number"
-				/>
-				<Select
-					name="gender"
-					label="Biological Gender"
-					options={["Male", "Female"]}
-					type="string"
-				/>
-				<Select
-					name="skin-tone"
-					label="Skin Tone Type"
-					options={[
-						"Type I",
-						"Type II",
-						"Type III",
-						"Type IV",
-						"Type V",
-						"Type VI",
-					]}
-					type="string"
-					hint="We are using Fitzpatrick skin type which is standard to measure Vitamin D intake."
-				/>
-				<Button>Submit</Button>
-			</form>
+			<UserInfoForm />
 		</main>
 	);
 }

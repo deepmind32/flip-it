@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./select.module.css";
 
 export default function Select({
@@ -21,7 +23,9 @@ export default function Select({
 				className={styles["text_input__input"]}
 				{...props}
 			>
-				<option value="" disabled>Select your option</option>
+				<option value="" disabled>
+					Select your option
+				</option>
 				{options.map((option) => (
 					<option key={option} value={option}>
 						{option}

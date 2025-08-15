@@ -1,6 +1,15 @@
+"use client";
+
 import styles from "./text-input.module.css";
 
-export default function TextInput({name, placeholder, label, hint, error="", ...props}) {
+export default function TextInput({
+	name,
+	placeholder,
+	label,
+	hint,
+	error = "",
+	...props
+}) {
 	return (
 		<div className={styles["text_input"]}>
 			<label className={styles["text_input__label"]} htmlFor={name}>
