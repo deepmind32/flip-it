@@ -1,4 +1,5 @@
 import Button from "../_components/button/button";
+import TextInput from "../_components/text-input/text-input";
 import styles from "./page.module.css";
 
 export default function StartPage() {
@@ -36,6 +37,32 @@ export default function StartPage() {
 			</div>
 
 			<form className={styles["start_page__form"]}>
+				<TextInput
+					name="age"
+					label="Your age"
+					placeholder="Eg; 30"
+					type="number"
+				/>
+				<TextInput
+					name="weight"
+					label="Your weight (in Kilogram)"
+					placeholder="Eg; 72"
+					type="number"
+				/>
+				<TextInput
+					name="gender"
+					label="Biological Gender"
+					placeholder="Eg; male/female"
+					type="string"
+				/>
+				<TextInput
+					name="skin-tone"
+					label="Skin Tone Type"
+					placeholder="Eg; class 1 or class 2 or ..."
+					type="string"
+					hint="We are using Fitzpatrick skin type which is standard to measure Vitamin D intake."
+					error="Some unexpected error occurred here"
+				/>
 				<Button>Submit</Button>
 			</form>
 		</main>
