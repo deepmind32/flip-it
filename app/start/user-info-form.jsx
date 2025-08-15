@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
+import { setUserCookies } from "./action";
 import Button from "../_components/button/button";
 import TextInput from "../_components/text-input/text-input";
 import Select from "../_components/select/select";
@@ -9,6 +11,9 @@ import Select from "../_components/select/select";
 import styles from "./page.module.css";
 
 export default function UserInfoForm() {
+	const router = useRouter();
+
+	const [is_submitting, set_is_submitting] = useState(false);
 	const [user_info, set_user_info] = useState({
 		name: undefined,
 		age: undefined,
@@ -21,9 +26,17 @@ export default function UserInfoForm() {
 		set_user_info((prev) => ({ ...prev, [name]: event.target.value }));
 	};
 
-	const handle_user_info_submission = (event) => {
+	const handle_user_info_submission = async (event) => {
 		event.preventDefault();
-		console.log(user_info);
+
+		set_is_submitting(true);
+		try {
+			await setUserCookies(user_info);
+			router.push("/");
+		} catch (err) {
+			console.error(err);
+		}
+		set_is_submitting(false);
 	};
 
 	return (
@@ -75,7 +88,9 @@ export default function UserInfoForm() {
 					type="string"
 					hint="We are using Fitzpatrick skin type which is standard to measure Vitamin D intake."
 				/>
-				<Button>Submit</Button>
+				<Button disabled={is_submitting}>
+					{is_submitting ? "Submitting..." : "Submit"}
+				</Button>
 			</form>
 		</>
 	);

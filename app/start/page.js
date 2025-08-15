@@ -1,5 +1,6 @@
-import styles from "./page.module.css";
 import UserInfoForm from "./user-info-form";
+
+import styles from "./page.module.css";
 
 export default function StartPage() {
 	return (
