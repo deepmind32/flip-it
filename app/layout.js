@@ -1,6 +1,6 @@
-import "./(stylesheets)/reset.css";
-import "./(stylesheets)/colors.css";
-import "./(stylesheets)/typography.css";
+import "./_stylesheets/reset.css";
+import "./_stylesheets/colors.css";
+import "./_stylesheets/typography.css";
 
 export const metadata = {
 	title: "Golden Hour",
