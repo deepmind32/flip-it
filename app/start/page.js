@@ -1,5 +1,7 @@
 import Button from "../_components/button/button";
 import TextInput from "../_components/text-input/text-input";
+import Select from "../_components/select/select";
+
 import styles from "./page.module.css";
 
 export default function StartPage() {
@@ -38,6 +40,12 @@ export default function StartPage() {
 
 			<form className={styles["start_page__form"]}>
 				<TextInput
+					name="name"
+					label="Preferred Nickname"
+					placeholder="Eg; sunshine"
+					type="string"
+				/>
+				<TextInput
 					name="age"
 					label="Your age"
 					placeholder="Eg; 30"
@@ -49,19 +57,25 @@ export default function StartPage() {
 					placeholder="Eg; 72"
 					type="number"
 				/>
-				<TextInput
+				<Select
 					name="gender"
 					label="Biological Gender"
-					placeholder="Eg; male/female"
+					options={["Male", "Female"]}
 					type="string"
 				/>
-				<TextInput
+				<Select
 					name="skin-tone"
 					label="Skin Tone Type"
-					placeholder="Eg; class 1 or class 2 or ..."
+					options={[
+						"Type I",
+						"Type II",
+						"Type III",
+						"Type IV",
+						"Type V",
+						"Type VI",
+					]}
 					type="string"
 					hint="We are using Fitzpatrick skin type which is standard to measure Vitamin D intake."
-					error="Some unexpected error occurred here"
 				/>
 				<Button>Submit</Button>
 			</form>

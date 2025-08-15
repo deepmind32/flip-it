@@ -1,0 +1,33 @@
+.text_input {
+	display: flex;
+	flex-direction: column;
+}
+
+.text_input__label {
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+.text_input__input {
+	font-size: 1.1rem;
+	font-weight: 500;
+	border: none;
+	border-bottom: 2px solid var(--color-accent);
+	margin-top: 0.3rem;
+	background-color: transparent;
+}
+
+.text_input__input:focus {
+	outline: none;
+	border-color: var(--color-primary);
+}
+
+.text_input__hint {
+	margin-top: 0.2rem;
+	font-size: 0.8rem;
+}
+
+.text_input__error {
+	font-size: 0.8rem;
+	color: #9b111e;
+}

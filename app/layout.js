@@ -3,6 +3,7 @@ import { Ubuntu } from "next/font/google"
 import "./_stylesheets/reset.css";
 import "./_stylesheets/variables.css";
 import "./_stylesheets/utilities.css";
+import "./global.css";
 
 export const metadata = {
 	title: "Golden Hour",
