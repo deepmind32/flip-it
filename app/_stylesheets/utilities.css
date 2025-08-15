@@ -1,0 +1,5 @@
+.u-color-primary { color: var(--color-primary) }
+.u-color-accent { color: var(--color-accent) }
+
+.u-background-primary { background-color: var(--color-background) }
+.u-background-accent { background-color: var(--color-accent) }

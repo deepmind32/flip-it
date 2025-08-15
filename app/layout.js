@@ -1,11 +1,15 @@
+import { Ubuntu } from "next/font/google"
+
 import "./_stylesheets/reset.css";
-import "./_stylesheets/colors.css";
-import "./_stylesheets/typography.css";
+import "./_stylesheets/variables.css";
+import "./_stylesheets/utilities.css";
 
 export const metadata = {
 	title: "Golden Hour",
 	description: "Track your sun exposure & vitamin D levels with precision. Real-time tips, weather updates & reminders to keep you healthy every day.",
 };
+
+const ubuntu = Ubuntu({ weight: ["400", "500", "700"], subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
 	return (
@@ -14,7 +18,7 @@ export default function RootLayout({ children }) {
 			<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 			<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 			<link rel="manifest" href="/site.webmanifest" />
-			<body>{children}</body>
+			<body className={ubuntu.className}>{children}</body>
 		</html>
 	);
 }
