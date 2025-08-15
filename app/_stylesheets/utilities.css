@@ -3,3 +3,5 @@
 
 .u-background-primary { background-color: var(--color-background) }
 .u-background-accent { background-color: var(--color-accent) }
+
+.u-underline { text-decoration: underline; text-underline-offset: 0.4rem; margin-bottom: 0.4rem;}

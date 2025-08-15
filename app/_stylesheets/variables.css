@@ -1,4 +1,14 @@
 :root {
 	--color-primary: #ffb300;
 	--color-accent: #2e2e2e;
+
+	--font-base-size: 18px;
+
+	font-size: var(--font-base-size);
 }
+
+/*CSS font styles*/
+h1 { font-size: 2.5rem; font-weight: 700; }
+h2 { font-size: 2rem; font-weight: 700; }
+p { font-size: 1rem; font-weight: 400; }
+small { font-size: 0.9rem; font-weight: 400; }

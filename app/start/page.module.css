@@ -1,0 +1,26 @@
+.start_page__header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.start_page__header__content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
+}
+
+.start_page__divider {
+	width: 100%;
+	height: 0;
+	border-bottom: 2px dashed rgba(0, 0, 0, 0.3);
+	margin: 1rem 0;
+}
+
+.start_page__content p{
+	margin-bottom: 1rem;
+}
