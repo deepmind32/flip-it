@@ -1,17 +1,10 @@
 import { NextResponse } from "next/server";
 
-const REQUIRED_COOKIES = ["name", "age", "gender", "skin_tone"];
+const REQUIRED_COOKIES = ["name", "age", "gender", "skin_tone", "expires"];
 const COOKIES_REQUIRED_PATH = ["/"];
 
 export function middleware(request) {
 	const { pathname } = request.nextUrl;
-
-	const user_info = {
-		name: request.cookies.get("name"),
-		age: request.cookies.get("age"),
-		gender: request.cookies.get("gender"),
-		skin_tone: request.cookies.get("skin_tone"),
-	};
 
 	// if any of the cookies is undefined then, redirect them to start page
 	const hasAllCookies = REQUIRED_COOKIES.every((cookie) =>

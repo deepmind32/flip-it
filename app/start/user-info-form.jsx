@@ -20,6 +20,7 @@ export default function UserInfoForm() {
 		weight: undefined,
 		gender: undefined,
 		skin_tone: undefined,
+		expires: undefined,
 	});
 
 	const handle_input_change = (name, event) => {
@@ -87,6 +88,14 @@ export default function UserInfoForm() {
 					onChange={handle_input_change.bind(null, "skin_tone")}
 					type="string"
 					hint="We are using Fitzpatrick skin type which is standard to measure Vitamin D intake."
+				/>
+				<TextInput
+					name="expires"
+					label="Account Active Time"
+					placeholder="Eg; 24 days"
+					type="number"
+					onChange={handle_input_change.bind("null", "expires")}
+					hint="All of your information are stored in form of cookies. So, set when to cookie is to be deleted. In days. Note: you can change the date later on too."
 				/>
 				<Button disabled={is_submitting}>
 					{is_submitting ? "Submitting..." : "Submit"}
