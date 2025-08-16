@@ -1,6 +1,6 @@
 .progress__goal_daily {
 	width: 100%;
-	background-color: var(--color-primary);
+	background-color: #ffd470;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;

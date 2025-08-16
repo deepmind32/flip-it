@@ -1,5 +1,5 @@
-import { HiOutlineCog6Tooth } from "react-icons/hi2";
 import { LiaHourglassStartSolid } from "react-icons/lia";
+import { FiEdit3 } from 'react-icons/fi';
 
 import Button from "./_components/button/button";
 import Overview from "./_ui/overview/overview";
@@ -17,9 +17,13 @@ export default function Home() {
 				</h3>
 
 				<Button type="icon">
-					<HiOutlineCog6Tooth size="2rem" />
+					<FiEdit3 size="1.5rem" />
 				</Button>
 			</header>
+
+			<section className={styles["app__overview"]}>
+				<Overview progress={<Progress />} weather={<Weather />} />
+			</section>
 
 			<section className={styles["app__start_button__wrapper"]}>
 				<Button className={styles["app__start_button"]}>
@@ -28,10 +32,6 @@ export default function Home() {
 				<small>
 					Optimal timing for sun exposure for today is for next 4 hours.
 				</small>
-			</section>
-
-			<section className={styles["app__overview"]}>
-				<Overview progress={<Progress />} weather={<Weather />} />
 			</section>
 		</main>
 	);
