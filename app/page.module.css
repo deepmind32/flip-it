@@ -5,6 +5,13 @@
 	align-items: center;
 }
 
-.app__header>h3>span {
-	/* display: block; */
+.app__start_button {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.app__start_button__wrapper small {
+	line-height: 1;
 }

@@ -1,0 +1,50 @@
+.progress__goal_daily {
+	width: 100%;
+	background-color: var(--color-primary);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	padding: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.progress__goal_daily p {
+	align-self: flex-start;
+	margin-bottom: 0.5rem;
+	font-weight: 500;
+}
+
+.progress__goal_daily h2 {
+	font-size: 3.5rem;
+}
+
+.progress__under {
+	display: flex;
+}
+
+.progress__goal_estimated {
+	background-color: #ffd470;
+	padding: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+.progress__goal_estimated p {
+	line-height: 1.2;
+	margin-bottom: 1rem;
+}
+
+.progress__goal_estimated span {
+	font-size: 1rem;
+}
+
+.progress__goal_weekly {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border: 3px solid var(--color-accent);
+	padding: 0.5rem;
+}
+
+.progress__goal_weekly h2 {
+	text-align: right;
+}
