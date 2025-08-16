@@ -4,13 +4,13 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { setUserCookies } from "./action";
-import Button from "../_components/button/button";
-import TextInput from "../_components/text-input/text-input";
-import Select from "../_components/select/select";
+import Button from "../../_components/button/button";
+import TextInput from "../../_components/text-input/text-input";
+import Select from "../../_components/select/select";
 
-import styles from "./page.module.css";
+import styles from "./user-info.module.css";
 
-export default function UserInfoForm() {
+export default function UserInfoForm({values = undefined}) {
 	const router = useRouter();
 
 	const [is_submitting, set_is_submitting] = useState(false);
@@ -52,6 +52,7 @@ export default function UserInfoForm() {
 					placeholder="Eg; sunshine"
 					type="string"
 					onChange={handle_input_change.bind(null, "name")}
+					value={values?.name}
 				/>
 				<TextInput
 					name="age"
@@ -59,6 +60,7 @@ export default function UserInfoForm() {
 					placeholder="Eg; 30"
 					type="number"
 					onChange={handle_input_change.bind(null, "age")}
+					value={values?.age}
 				/>
 				<TextInput
 					name="weight"
@@ -66,6 +68,7 @@ export default function UserInfoForm() {
 					placeholder="Eg; 72"
 					type="number"
 					onChange={handle_input_change.bind(null, "weight")}
+					value={values?.weight}
 				/>
 				<Select
 					name="gender"
@@ -73,6 +76,7 @@ export default function UserInfoForm() {
 					options={["Male", "Female"]}
 					type="string"
 					onChange={handle_input_change.bind(null, "gender")}
+					value={values?.gender}
 				/>
 				<Select
 					name="skin_tone"
@@ -88,6 +92,7 @@ export default function UserInfoForm() {
 					onChange={handle_input_change.bind(null, "skin_tone")}
 					type="string"
 					hint="We are using Fitzpatrick skin type which is standard to measure Vitamin D intake."
+					value={values?.skin_tone}
 				/>
 				<TextInput
 					name="expires"
@@ -96,6 +101,7 @@ export default function UserInfoForm() {
 					type="number"
 					onChange={handle_input_change.bind("null", "expires")}
 					hint="All of your information are stored in form of cookies. So, set when to cookie is to be deleted. In days. Note: you can change the date later on too."
+					value={values?.expires}
 				/>
 				<Button disabled={is_submitting}>
 					{is_submitting ? "Submitting..." : "Submit"}

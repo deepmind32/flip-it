@@ -1,4 +1,4 @@
-import UserInfoForm from "./user-info-form";
+import UserInfoForm from "../_ui/user-info-form/user-info-form";
 
 import styles from "./page.module.css";
 

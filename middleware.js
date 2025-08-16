@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const REQUIRED_COOKIES = ["name", "age", "gender", "skin_tone", "expires"];
+const REQUIRED_COOKIES = ["name", "age", "gender", "skin_tone", "expires", "weight"];
 const COOKIES_REQUIRED_PATH = ["/"];
 
 export function middleware(request) {

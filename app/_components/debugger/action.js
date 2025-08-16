@@ -2,7 +2,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-const TO_DELETE_COOKIES = ["name", "age", "gender", "skin_tone", "expires"];
+const TO_DELETE_COOKIES = ["name", "age", "gender", "skin_tone", "expires", "weight"];
 
 export default async function clear_cookies() {
 	const cookie_store = await cookies();

@@ -9,6 +9,7 @@ import Progress from "./_ui/progress/progress";
 import Weather from "./_ui/weather/weather";
 
 import { cookies } from "next/headers";
+import Link from "next/link";
 
 export default async function Home() {
 	const cookieStore = await cookies();
@@ -23,9 +24,11 @@ export default async function Home() {
 					Hello <span>{user_info["name"]}</span> !
 				</h3>
 
-				<Button type="icon">
-					<FiEdit3 size="1.5rem" />
-				</Button>
+				<Link href="/edit">
+					<Button type="icon">
+						<FiEdit3 size="1.5rem" />
+					</Button>
+				</Link>
 			</header>
 
 			<section className={styles["app__overview"]}>
