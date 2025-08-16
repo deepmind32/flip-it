@@ -1,5 +1,5 @@
 import { LiaHourglassStartSolid } from "react-icons/lia";
-import { FiEdit3 } from 'react-icons/fi';
+import { FiEdit3 } from "react-icons/fi";
 
 import Button from "./_components/button/button";
 import Overview from "./_ui/overview/overview";
@@ -8,12 +8,19 @@ import styles from "./page.module.css";
 import Progress from "./_ui/progress/progress";
 import Weather from "./_ui/weather/weather";
 
-export default function Home() {
+import { cookies } from "next/headers";
+
+export default async function Home() {
+	const cookieStore = await cookies();
+	const user_info = {
+		name: cookieStore.get("name").value,
+	};
+
 	return (
 		<main className={styles["app"]}>
 			<header className={styles["app__header"]}>
 				<h3>
-					Hello <span>Alexa</span>!
+					Hello <span>{user_info["name"]}</span> !
 				</h3>
 
 				<Button type="icon">

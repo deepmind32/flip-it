@@ -4,6 +4,7 @@ import "./_stylesheets/reset.css";
 import "./_stylesheets/variables.css";
 import "./_stylesheets/utilities.css";
 import "./global.css";
+import Debugger from "./_components/debugger/debugger";
 
 export const metadata = {
 	title: "Golden Hour",
@@ -36,6 +37,8 @@ export default function RootLayout({ children }) {
 			<link rel="manifest" href="/site.webmanifest" />
 			<body className={ubuntu.className}>
 				<main className="app_screen">{children}</main>
+
+				{process.env.NODE_ENV === "development" && <Debugger />}
 			</body>
 		</html>
 	);
