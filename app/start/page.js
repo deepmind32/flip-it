@@ -1,3 +1,4 @@
+import LocationFetcher from "../_components/location-fetcher/location-fetcher";
 import UserInfoForm from "../_ui/user-info-form/user-info-form";
 
 import styles from "./page.module.css";
@@ -22,6 +23,8 @@ export default function StartPage() {
 			</header>
 
 			<div className={styles["start_page__divider"]} />
+
+			<LocationFetcher />
 
 			<div className={styles["start_page__content"]}>
 				<p>
