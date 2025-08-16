@@ -12,7 +12,6 @@ export function middleware(request) {
 		gender: request.cookies.get("gender"),
 		skin_tone: request.cookies.get("skin_tone"),
 	};
-	console.log(user_info);
 
 	// if any of the cookies is undefined then, redirect them to start page
 	const hasAllCookies = REQUIRED_COOKIES.every((cookie) =>
