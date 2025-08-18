@@ -26,11 +26,13 @@
 	background-color: #ffd470;
 	padding: 0.5rem;
 	margin-right: 0.5rem;
+	flex-grow: 1;
 }
 
 .progress__goal_estimated p {
 	line-height: 1.2;
 	margin-bottom: 1rem;
+	font-weight: 500;
 }
 
 .progress__goal_estimated span {
@@ -43,6 +45,11 @@
 	justify-content: space-between;
 	border: 3px solid var(--color-accent);
 	padding: 0.5rem;
+	flex-grow: 1;
+}
+
+.progress__goal_weekly p {
+	font-weight: 500;
 }
 
 .progress__goal_weekly h2 {

@@ -36,9 +36,11 @@ export default async function Home() {
 			</section>
 
 			<section className={styles["app__start_button__wrapper"]}>
-				<Button className={styles["app__start_button"]}>
-					<LiaHourglassStartSolid size="1.5rem" /> Start tracking
-				</Button>
+				<Link href="/tracking">
+					<Button className={styles["app__start_button"]}>
+						<LiaHourglassStartSolid size="1.5rem" /> Start tracking
+					</Button>
+				</Link>
 				<small>
 					Optimal timing for sun exposure for today is for next 4 hours.
 				</small>

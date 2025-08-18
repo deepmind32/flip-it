@@ -1,7 +1,16 @@
 import { NextResponse } from "next/server";
 
-const REQUIRED_COOKIES = ["name", "age", "gender", "skin_tone", "expires", "weight"];
-const COOKIES_REQUIRED_PATH = ["/"];
+const REQUIRED_COOKIES = [
+	"name",
+	"age",
+	"gender",
+	"skin_tone",
+	"expires",
+	"weight",
+	"latitude",
+	"longitude"
+];
+const COOKIES_REQUIRED_PATH = ["/", "/tracking", "/edit"];
 
 export function middleware(request) {
 	const { pathname } = request.nextUrl;
@@ -24,5 +33,5 @@ export function middleware(request) {
 }
 
 export const config = {
-	matcher: ["/", "/start"],
+	matcher: ["/", "/start", "/tracking", "/edit"],
 };
