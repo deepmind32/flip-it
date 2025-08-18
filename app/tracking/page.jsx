@@ -15,5 +15,10 @@ export default async function TrackingPage() {
 		cloud_cover: weather_data?.current?.cloud,
 	};
 
-	return <TrackingClient values={form_values} />;
+	return (
+		<TrackingClient
+			skin_type={cookie_store.get("skin_tone").value}
+			values={form_values}
+		/>
+	);
 }
