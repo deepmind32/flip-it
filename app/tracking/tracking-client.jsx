@@ -19,7 +19,15 @@ export default function TrackingClient({ values }) {
 	return (
 		<>
 			{!meta.posture && (
-				<TrackingForm values={values} onSubmit={handle_tracking_form_submit} />
+				<>
+					<h3 style={{ textAlign: "center", marginBottom: "2rem" }}>
+						Enters Current Details
+					</h3>
+					<TrackingForm
+						values={values}
+						onSubmit={handle_tracking_form_submit}
+					/>
+				</>
 			)}
 			{meta.posture && <p>this is timer</p>}
 		</>
