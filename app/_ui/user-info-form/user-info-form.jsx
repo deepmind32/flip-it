@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 import { setUserCookies } from "./action";
@@ -31,13 +31,34 @@ export default function UserInfoForm({values = undefined}) {
 		expires: undefined,
 	});
 
+	// Initialize form with default values from props
+	useEffect(() => {
+		if (values) {
+			const updatedInfo = {};
+			// Only update fields that have values
+			if (values.name) updatedInfo.name = values.name;
+			if (values.age) updatedInfo.age = values.age;
+			if (values.weight) updatedInfo.weight = values.weight;
+			if (values.gender) updatedInfo.gender = values.gender;
+			if (values.skin_tone) updatedInfo.skin_tone = values.skin_tone;
+			if (values.expires) updatedInfo.expires = values.expires;
+			
+			// Update state with any default values
+			if (Object.keys(updatedInfo).length > 0) {
+				set_user_info(prev => ({...prev, ...updatedInfo}));
+			}
+		}
+	}, [values]);
+
 	const handle_input_change = (name, event) => {
 		const value = event.target.value;
 		set_user_info((prev) => ({ ...prev, [name]: value }));
 		
-		// Clear error when field is filled
+		// Clear error when field is filled, or set it when field is emptied
 		if (value) {
 			set_errors(prev => ({ ...prev, [name]: "" }));
+		} else {
+			set_errors(prev => ({ ...prev, [name]: "This field is required" }));
 		}
 	};
 
@@ -48,9 +69,9 @@ export default function UserInfoForm({values = undefined}) {
 		const newErrors = {};
 		let hasError = false;
 		
-		// Check each field
+		// Check each field - more robust check for empty values
 		Object.entries(user_info).forEach(([key, value]) => {
-			if (!value) {
+			if (value === undefined || value === null || value === "") {
 				newErrors[key] = "This field is required";
 				hasError = true;
 			} else {
