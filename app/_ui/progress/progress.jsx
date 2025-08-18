@@ -17,7 +17,7 @@ export default async function Progress() {
 				<div className={styles["progress__goal_estimated"]}>
 					<p>Estimated Vitamin D</p>
 					<h1>
-						{18 + vitamin_d / 100}
+						{(18 + vitamin_d / 100).toFixed(1)}
 						<span>ng/ml</span>
 					</h1>
 				</div>

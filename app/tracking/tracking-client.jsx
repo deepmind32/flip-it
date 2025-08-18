@@ -63,7 +63,7 @@ export default function TrackingClient({ skin_type, values, onComplete }) {
 						{meta.posture && (
 							<p style={{ textAlign: "center" }}>
 								You have accumulated{" "}
-								<span style={{ fontWeight: 500 }}>{vitamin_d_iu} IU</span>{" "}
+								<span style={{ fontWeight: 500 }}>{vitamin_d_iu.toFixed(2)} IU</span>{" "}
 								Vitamin D in this session.
 							</p>
 						)}

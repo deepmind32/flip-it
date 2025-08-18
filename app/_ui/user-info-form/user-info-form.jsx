@@ -14,6 +14,14 @@ export default function UserInfoForm({values = undefined}) {
 	const router = useRouter();
 
 	const [is_submitting, set_is_submitting] = useState(false);
+	const [errors, set_errors] = useState({
+		name: "",
+		age: "",
+		weight: "",
+		gender: "",
+		skin_tone: "",
+		expires: "",
+	});
 	const [user_info, set_user_info] = useState({
 		name: undefined,
 		age: undefined,
@@ -24,11 +32,39 @@ export default function UserInfoForm({values = undefined}) {
 	});
 
 	const handle_input_change = (name, event) => {
-		set_user_info((prev) => ({ ...prev, [name]: event.target.value }));
+		const value = event.target.value;
+		set_user_info((prev) => ({ ...prev, [name]: value }));
+		
+		// Clear error when field is filled
+		if (value) {
+			set_errors(prev => ({ ...prev, [name]: "" }));
+		}
 	};
 
 	const handle_user_info_submission = async (event) => {
 		event.preventDefault();
+
+		// Validate all fields
+		const newErrors = {};
+		let hasError = false;
+		
+		// Check each field
+		Object.entries(user_info).forEach(([key, value]) => {
+			if (!value) {
+				newErrors[key] = "This field is required";
+				hasError = true;
+			} else {
+				newErrors[key] = "";
+			}
+		});
+		
+		// Update error state
+		set_errors(newErrors);
+		
+		// Don't submit if there are errors
+		if (hasError) {
+			return;
+		}
 
 		set_is_submitting(true);
 		try {
@@ -53,6 +89,7 @@ export default function UserInfoForm({values = undefined}) {
 					type="string"
 					onChange={handle_input_change.bind(null, "name")}
 					value={values?.name}
+					error={errors.name}
 				/>
 				<TextInput
 					name="age"
@@ -61,6 +98,7 @@ export default function UserInfoForm({values = undefined}) {
 					type="number"
 					onChange={handle_input_change.bind(null, "age")}
 					value={values?.age}
+					error={errors.age}
 				/>
 				<TextInput
 					name="weight"
@@ -69,6 +107,7 @@ export default function UserInfoForm({values = undefined}) {
 					type="number"
 					onChange={handle_input_change.bind(null, "weight")}
 					value={values?.weight}
+					error={errors.weight}
 				/>
 				<Select
 					name="gender"
@@ -77,6 +116,7 @@ export default function UserInfoForm({values = undefined}) {
 					type="string"
 					onChange={handle_input_change.bind(null, "gender")}
 					value={values?.gender}
+					error={errors.gender}
 				/>
 				<Select
 					name="skin_tone"
@@ -93,15 +133,17 @@ export default function UserInfoForm({values = undefined}) {
 					type="string"
 					hint="We are using Fitzpatrick skin type which is standard to measure Vitamin D intake."
 					value={values?.skin_tone}
+					error={errors.skin_tone}
 				/>
 				<TextInput
 					name="expires"
 					label="Account Active Time"
 					placeholder="Eg; 24 days"
 					type="number"
-					onChange={handle_input_change.bind("null", "expires")}
+					onChange={handle_input_change.bind(null, "expires")}
 					hint="All of your information are stored in form of cookies. So, set when to cookie is to be deleted. In days. Note: you can change the date later on too."
 					value={values?.expires}
+					error={errors.expires}
 				/>
 				<Button disabled={is_submitting}>
 					{is_submitting ? "Submitting..." : "Submit"}

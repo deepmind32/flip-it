@@ -8,6 +8,7 @@ export default function TextInput({
 	label,
 	hint,
 	error = "",
+	value=undefined,
 	...props
 }) {
 	return (
@@ -21,6 +22,7 @@ export default function TextInput({
 				name={name}
 				placeholder={placeholder}
 				className={styles["text_input__input"]}
+				defaultValue={value}
 				{...props}
 			/>
 			{error && <p className={styles["text_input__error"]}>{error}</p>}
